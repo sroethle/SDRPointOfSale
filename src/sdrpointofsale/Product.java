@@ -11,7 +11,8 @@ public class Product {
     private DiscountStrategy discountStrategy;
 
     
-    public Product(String productID, String description, double price, DiscountStrategy discountStrategy){
+    public Product(String productID, String description, double price, 
+            DiscountStrategy discountStrategy){
         this.productID = productID;
         this.description = description;
         this.discountStrategy = discountStrategy;

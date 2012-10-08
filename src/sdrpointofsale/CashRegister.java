@@ -84,10 +84,13 @@ public class CashRegister {
         System.out.println("Customer Name: " + customer.getCustomerName());
         System.out.println("Customer Number:" + customer.getCustomerID());
         System.out.println("");
-        System.out.printf(formatString,"ID","Description","QTY","UnitPrice","Subtotal","Discount");
+        System.out.printf(formatString,"ID","Description","QTY","UnitPrice",
+                "Subtotal","Discount");
         System.out.println("");
         
-        System.out.println("Total Bill Before Discount: " + receipt.getTotalBeforeDiscount());
-        System.out.println("Total Bill After Discount: " + receipt.getTotalAfterDiscount());
+        System.out.println("Total Bill Before Discount: " 
+                + receipt.getTotalBeforeDiscount());
+        System.out.println("Total Bill After Discount: " 
+                + receipt.getTotalAfterDiscount());
     }
 }

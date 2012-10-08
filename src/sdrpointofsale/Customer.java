@@ -23,7 +23,7 @@ public class Customer {
      * Gets the customer name.
      * @return String Value for customer name.
      */
-    public String getCustomerName() {
+    public final String getCustomerName() {
         return customerName;
     }
 
@@ -31,7 +31,7 @@ public class Customer {
      *
      * @return Integer value that represents the Customer ID
      */
-    public int getCustomerID() {
+    public final int getCustomerID() {
         return customerID;
     }
 
@@ -39,7 +39,7 @@ public class Customer {
      *
      * @param customerID
      */
-    public void setCustomerID(int customerID) {
+    public final void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 
@@ -47,7 +47,7 @@ public class Customer {
      *
      * @param customerName
      */
-    public void setCustomerName(String customerName) {
+    public final void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
     
