@@ -5,15 +5,14 @@ package sdrpointofsale;
  * @author Scott Roethle
  */
 public class Receipt {
-    String customerName;
 
     LineItem[] lineItems = new LineItem[0];
 
-    public Receipt(Customer customer) {
-        customerName = customer.getCustomerName();
-    }
-
-    // Here's how to add a purchased product as a LineItem
+    /**
+     * Add a purchased product as a LineItem
+     * @param product a Product object that is added to a LineItem
+     * @param qty an Integer value that represents the number of Products
+     */
     public void addLineItem(Product product, int qty) {
         LineItem item = new LineItem(product, qty);
         addToArray(item);
@@ -26,7 +25,11 @@ public class Receipt {
         lineItems = tempItems;
     }
 
-    // Here's how to loop through all the line items and get a grand total
+    /**
+     * Gets the grand total of the line items Before Discount by looping 
+     * through all the line items.
+     * @return Double value that represents the grand total before discount.
+     */
     public double getTotalBeforeDiscount() {
         double grandTotal = 0.0;
         for (LineItem item : lineItems) {
@@ -35,4 +38,15 @@ public class Receipt {
         return grandTotal;
     }
     
+    /**
+     * Gets the grand total of the line items by looping 
+     * @return Double value that represents the grand total after discount
+     */
+    public double getTotalAfterDiscount() {
+        double grandTotal = 0.0;
+        for (LineItem item : lineItems) {
+            grandTotal += item.getExtendedPrice();
+        }
+        return grandTotal;
+    }
 }

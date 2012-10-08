@@ -18,31 +18,60 @@ public class Product {
         this.price = price;
     }
 
-    public String getProductID() {
+    /**
+     *
+     * @return
+     */
+    public final String getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    /**
+     *
+     * @param productID
+     */
+    public final void setProductID(String productID) {
         this.productID = productID;
     }
 
-    public double getPrice() {
+    /**
+     *
+     * @return
+     */
+    public final double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    /**
+     *
+     * @param price
+     */
+    public final void setPrice(double price) {
         this.price = price;
     }
     
-    public double getDiscountAmt(int quantity){
+    /**
+     *
+     * @param quantity
+     * @return
+     */
+    public final double getDiscountAmt(int quantity){
         return discountStrategy.getDiscountAmt(price, quantity);
     }
 
-    public String getDescription() {
+    /**
+     *
+     * @return
+     */
+    public final String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    /**
+     *
+     * @param description
+     */
+    public final void setDescription(String description) {
         this.description = description;
     }
     
