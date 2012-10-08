@@ -13,12 +13,10 @@ public class StartUp {
        CashRegister cashRegister = new CashRegister();
        
        cashRegister.checkOutnewCustomer("Scott Roethle");
-       cashRegister.addItemToSale("A101", 2);
+       cashRegister.addItemToSale("A101", 7);
        cashRegister.addItemToSale("B205", 1);
        cashRegister.addItemToSale("C222", 3);
        cashRegister.printReceipt();
-       
-               
     }
     
 }

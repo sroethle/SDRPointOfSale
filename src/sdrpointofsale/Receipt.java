@@ -35,9 +35,4 @@ public class Receipt {
         return grandTotal;
     }
     
-    public void printReceipt(){
-
-        
-        
-    }
 }

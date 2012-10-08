@@ -1,5 +1,7 @@
 package sdrpointofsale;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author sroethle
@@ -27,10 +29,18 @@ public class LineItem {
     }
     
     public String getLineItem(){
+         
+        DecimalFormat formatter = new DecimalFormat("#0.00");
+        
         double subtotal;
         subtotal = product.getPrice() * quantity;
-        return product.getProductID() + "    " + product.getDescription() 
-                + "    " + quantity + "    " + product.getPrice() + "    " 
-                + subtotal + "    " + product.getDiscountAmt(quantity);
+
+        return "\"" + product.getProductID() + "\",\"" + product.getDescription() 
+                + "\",\"" + quantity + "\",\"" + formatter.format(product.getPrice()) + "\",\"" 
+                + formatter.format(subtotal) + "\",\"" + formatter.format(product.getDiscountAmt(quantity)) + "\"";
+    }
+    
+    public double getExtendedPrice(){
+        return product.getPrice()*quantity;
     }
 }

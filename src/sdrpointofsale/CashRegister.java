@@ -38,15 +38,26 @@ public class CashRegister {
     }
 
     public void printReceipt() {
+        String formatString = "%-15s %-20s %-15s %-15s %-15s %-15s";
+        double totalCost = 0;
+        
+        //System.out.printf(formatString, 1);
+        
         System.out.println("Customer Name: " + customer.getCustomerName());
         System.out.println("");
-        System.out.println("ID    description    QTY    UnitPrice    Subtotal    Discount");
-        for (LineItem items: receipt.lineItems) {
+        System.out.printf(formatString,"ID","Description","QTY","UnitPrice","Subtotal","Discount");
+        System.out.println("");
+        
+        for (LineItem items: receipt.lineItems) {    
+            //System.out.printf(formatString, items.getLineItem());
+            //System.out.println("");
             System.out.println(items.getLineItem());
+            totalCost += items.getExtendedPrice();
 
         }
-
-        System.out.println("");
-
+        System.out.println("Total Bill: " + totalCost);
+        
     }
+    
+    
 }
