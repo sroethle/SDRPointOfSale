@@ -5,17 +5,17 @@ package sdrpointofsale;
  * @author Scott Roethle
  */
 public class Receipt {
+    String customerName;
 
-    private DiscountStrategy discount;
     LineItem[] lineItems = new LineItem[0];
 
-    public Receipt(DiscountStrategy discountStrategy) {
-        this.discount = discountStrategy;
+    public Receipt(Customer customer) {
+        customerName = customer.getCustomerName();
     }
 
     // Here's how to add a purchased product as a LineItem
-    public void addLineItem(int productID, int qty) {
-        LineItem item = new LineItem(productID, qty, discount);
+    public void addLineItem(Product product, int qty) {
+        LineItem item = new LineItem(product, qty);
         addToArray(item);
     }
 
@@ -33,5 +33,11 @@ public class Receipt {
             grandTotal += item.getOrigPriceSubtotal();
         }
         return grandTotal;
+    }
+    
+    public void printReceipt(){
+
+        
+        
     }
 }

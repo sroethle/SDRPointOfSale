@@ -25,4 +25,12 @@ public class LineItem {
     public double getOrigPriceSubtotal(){
         return product.getPrice() +  product.getDiscountAmt(quantity);
     }
+    
+    public String getLineItem(){
+        double subtotal;
+        subtotal = product.getPrice() * quantity;
+        return product.getProductID() + "    " + product.getDescription() 
+                + "    " + quantity + "    " + product.getPrice() + "    " 
+                + subtotal + "    " + product.getDiscountAmt(quantity);
+    }
 }
