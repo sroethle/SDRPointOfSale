@@ -25,4 +25,13 @@ public class Receipt {
         tempItems[lineItems.length] = item;
         lineItems = tempItems;
     }
+
+    // Here's how to loop through all the line items and get a grand total
+    public double getTotalBeforeDiscount() {
+        double grandTotal = 0.0;
+        for (LineItem item : lineItems) {
+            grandTotal += item.getOrigPriceSubtotal();
+        }
+        return grandTotal;
+    }
 }

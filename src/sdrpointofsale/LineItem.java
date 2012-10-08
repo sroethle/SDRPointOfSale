@@ -9,8 +9,8 @@ public class LineItem {
     private Product product;
     private int quantity;
     
-    public LineItem(int productID, int quantity, DiscountStrategy discountStrategy){
-        product = new Product(productID, discountStrategy, quantity);
+    public LineItem(Product product, int quantity){
+        this.product = product;
         this.quantity = quantity;
     }
 
@@ -21,4 +21,8 @@ public class LineItem {
     public void setProduct(Product product) {
         this.product = product;
     }   
+    
+    public double getOrigPriceSubtotal(){
+        return product.getPrice() +  product.getDiscountAmt(quantity);
+    }
 }
