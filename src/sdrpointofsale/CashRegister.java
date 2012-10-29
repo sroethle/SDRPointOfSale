@@ -1,5 +1,9 @@
 package sdrpointofsale;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 /**
  *
  * @author Scott Roethle
@@ -8,11 +12,21 @@ public class CashRegister {
 
     private Receipt receipt;
     private Customer customer;
+    private Map <Integer, Customer> customerMap;
     
-    private Customer[] customers = {
-        new Customer("Scott Roethle",1001),
-        new Customer("Fake Person",1002),
-    };
+//    private Customer[] customers = {
+//        new Customer("Scott Roethle",1001),
+//        new Customer("Fake Person",1002),
+//    };
+//    
+    CashRegister(){
+        customerMap = new HashMap <Integer, Customer>();
+        Customer customer1 = new Customer("Scott Roethle",1001);
+        Customer customer2 = new Customer("Fake Person",1002);
+        
+        customerMap.put(1001, customer1);
+        customerMap.put(1002, customer2);
+    }
     
     private Product[] products = {
         new Product("A101", "Baseball Hat", 19.95, new FallDiscount()),
@@ -57,11 +71,14 @@ public class CashRegister {
      * @param customerID an Integer value that represents the Customer
      */
     public final void setCustomer(int customerID) {
-            Customer customer2 = null;
-            
-        for (Customer c : customers) {
-            if (customerID == c.getCustomerID()) {
-                customer2 = c;
+        Set<Integer> keys = customerMap.keySet();
+
+        Customer customer2 = null;
+        for (Integer key : keys) {
+            Customer cust = customerMap.get(key);
+
+            if (customerID == cust.getCustomerID()) {
+                customer2 = cust;
                 break;
             }
         }
@@ -70,7 +87,6 @@ public class CashRegister {
         if (customer2 != null) {
             this.customer = customer2;
         }
-
     }
 
     /**
@@ -78,7 +94,7 @@ public class CashRegister {
      * Name, Customer Number, the line items of the sale, and finally the
      * total bill.
      */
-    public final void printReceipt() {
+    public final void outputReceipt() {
         String formatString = "%-15s %-20s %-15s %-15s %-15s %-15s";
         
         System.out.println("Customer Name: " + customer.getCustomerName());

@@ -16,7 +16,7 @@ public class StartUp {
        cashRegister.addItemToSale("A101", 7);
        cashRegister.addItemToSale("B205", 1);
        cashRegister.addItemToSale("C222", 3);
-       cashRegister.printReceipt();
+       cashRegister.outputReceipt();
     }
     
 }
